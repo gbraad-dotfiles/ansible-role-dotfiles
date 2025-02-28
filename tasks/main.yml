@@ -5,9 +5,11 @@
   register: dotfiles_dir
 
 - name: Run dotfiles install script if directory does not exist
-  ansible.builtin.shell: |
-    set -o pipefail
-    curl -fsSL {{ dotfiles_install_url }} | sh
+  ansible.builtin.shell:
+    cmd: |
+      set -o pipefail
+      curl -fsSL {{ dotfiles_install_url }} | bash
+    executable: /bin/bash
   when: not dotfiles_dir.stat.exists
   become: true
   become_user: "{{ user }}"
