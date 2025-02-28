@@ -4,25 +4,25 @@ Dotfiles
 Deploys personal dotfiles
 
 
-Requirements
-------------
+## Usage
 
-
-
-Role Variables
---------------
-
-
-
-Dependencies
-------------
-
-
-
-Example Playbook
-----------------
-
+```shell
+ansible-galaxy role install gbraad.dotfiles
 ```
+
+## Requirements
+
+
+## Role Variables
+
+
+
+## Dependencies
+
+
+## Example Playbook
+
+```yaml
 - name: Install dotfiles
   hosts: localhost
   roles:
@@ -30,14 +30,12 @@ Example Playbook
 ```
 
 
-License
--------
+## License
 
 BSD
 
 
-Author Information
-------------------
+## Author Information
 
 | [!["Gerard Braad"](http://gravatar.com/avatar/e466994eea3c2a1672564e45aca844d0.png?s=60)](http://gbraad.nl "Gerard Braad <me@gbraad.nl>") |
 |---|
