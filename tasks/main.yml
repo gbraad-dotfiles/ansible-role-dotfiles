@@ -1,1 +1,20 @@
 ---
+- name: Check if '~/.dotfiles' directory exists for the user
+  ansible.builtin.stat:
+    path: "{{ dotfiles_path }}"
+  register: dotfiles_dir
+
+- name: Run dotfiles install script if directory does not exist
+  ansible.builtin.shell: |
+    set -o pipefail
+    curl -fsSL {{ dotfiles_install_url }} | sh
+  when: not dotfiles_dir.stat.exists
+  become: true
+  become_user: "{{ user }}"
+  changed_when: false
+
+- name: Change default shell to zsh for user
+  ansible.builtin.command: chsh -s /usr/bin/zsh {{ user }}
+  become: true
+  become_user: root
+  changed_when: false
