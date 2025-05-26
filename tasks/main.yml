@@ -12,11 +12,12 @@
     executable: /bin/bash
   when: not dotfiles_dir.stat.exists
   become: true
-  become_user: "{{ user }}"
+  become_user: "{{ dotfiles_target_user }}"
   changed_when: false
 
 - name: Change default shell to zsh for user
-  ansible.builtin.command: chsh -s /usr/bin/zsh {{ user }}
+  ansible.builtin.command: |
+    chsh -s /usr/bin/zsh {{ dotfiles_target_user }}
   become: true
   become_user: root
   changed_when: false

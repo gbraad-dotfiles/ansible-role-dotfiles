@@ -1,4 +1,3 @@
 ---
 user: "gbraad"
-dotfiles_path: "~{{ user }}/.dotfiles"
 dotfiles_install_url: "https://dotfiles.gbraad.nl/install.sh"

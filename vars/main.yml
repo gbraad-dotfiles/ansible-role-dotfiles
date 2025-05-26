@@ -1,1 +1,3 @@
 ---
+dotfiles_target_user: "{{ user | default(ansible_user_id) }}"
+dotfiles_path: "~/{{ dotfiles_target_user }}/.dotfiles"
